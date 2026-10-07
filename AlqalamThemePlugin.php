@@ -144,11 +144,14 @@ class AlqalamThemePlugin extends ThemePlugin
             'default' => true,
         ]);
 
+        // Note: multilingual options must keep a string default. ThemePlugin
+        // converts stored values according to the default's type, and an
+        // array default makes it json_decode() an already-decoded array.
         $this->addOption('universityName', 'FieldText', [
             'label' => __('plugins.themes.alqalam.option.universityName.label'),
             'description' => __('plugins.themes.alqalam.option.universityName.description'),
             'isMultilingual' => true,
-            'default' => [],
+            'default' => '',
         ]);
 
         $this->addOption('universityUrl', 'FieldText', [
@@ -194,7 +197,7 @@ class AlqalamThemePlugin extends ThemePlugin
             'description' => __('plugins.themes.alqalam.option.indexingHtml.description'),
             'isMultilingual' => true,
             'size' => 'large',
-            'default' => [],
+            'default' => '',
         ]);
 
         foreach (self::SOCIAL_NETWORKS as $network) {
@@ -218,8 +221,8 @@ class AlqalamThemePlugin extends ThemePlugin
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
-        $universityName = $this->getLocalizedOption('universityName');
-        if (empty($universityName)) {
+        $universityName = $this->getLocalizedTextOption('universityName');
+        if ($universityName === '') {
             $universityName = __('plugins.themes.alqalam.university.name');
         }
 
@@ -250,13 +253,26 @@ class AlqalamThemePlugin extends ThemePlugin
             'alqalamUniversityUrl' => $universityUrl,
             'alqalamSocial' => $social,
             'alqalamLocales' => $locales,
-            'alqalamIndexingHtml' => $this->getLocalizedOption('indexingHtml'),
+            'alqalamIndexingHtml' => $this->getLocalizedTextOption('indexingHtml'),
             'alqalamHeaderStyle' => $this->getOption('headerStyle') === 'dark' ? 'dark' : 'light',
             'alqalamPrimaryColour' => $this->getColourOption('primaryColour', self::DEFAULT_PRIMARY),
             'alqalamYear' => date('Y'),
         ]);
 
         return false;
+    }
+
+    /**
+     * Get the value of a multilingual text option in the current locale,
+     * falling back to the other locales. Always returns a string.
+     */
+    protected function getLocalizedTextOption(string $name): string
+    {
+        $value = $this->getOption($name);
+        if (is_array($value)) {
+            $value = $this->getBestLocalizedData($value) ?? '';
+        }
+        return is_string($value) ? trim($value) : '';
     }
 
     /**
