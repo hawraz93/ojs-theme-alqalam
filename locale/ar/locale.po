@@ -203,3 +203,96 @@ msgstr "مشاركة على {$network}"
 
 msgid "plugins.themes.alqalam.backToTop"
 msgstr "العودة إلى الأعلى"
+
+msgid "plugins.themes.alqalam.option.noticeText.label"
+msgstr "إشعار عام للموقع"
+
+msgid "plugins.themes.alqalam.option.noticeText.description"
+msgstr "رسالة قصيرة تظهر أسفل شريط التنقل في كل الصفحات، مثل دعوة لتقديم البحوث أو إشعار صيانة. اتركها فارغة للإخفاء. يمكن استخدام روابط HTML بسيطة، ويستطيع القارئ إغلاقها."
+
+msgid "plugins.themes.alqalam.option.useHomepageImageAsHero.label"
+msgstr "خلفية اللافتة"
+
+msgid "plugins.themes.alqalam.option.useHomepageImageAsHero.description"
+msgstr "يستخدم صورة الصفحة الرئيسية (الإعدادات > الموقع > المظهر > الإعداد > صورة الصفحة الرئيسية) خلفيةً للافتة. اختر صورة عريضة وهادئة (مثلاً 1600×600)."
+
+msgid "plugins.themes.alqalam.option.useHomepageImageAsHero.option"
+msgstr "عرض صورة الصفحة الرئيسية كخلفية للافتة بدلاً من عرضها أسفلها."
+
+msgid "plugins.themes.alqalam.option.editorName.label"
+msgstr "رئيس التحرير: الاسم"
+
+msgid "plugins.themes.alqalam.option.editorName.description"
+msgstr "املأه لعرض بطاقة رئيس التحرير في الصفحة الرئيسية (الاسم واللقب والصورة ورسالة قصيرة). اتركه فارغاً لإخفاء البطاقة."
+
+msgid "plugins.themes.alqalam.option.editorTitle.label"
+msgstr "رئيس التحرير: اللقب / المنصب"
+
+msgid "plugins.themes.alqalam.option.editorPhotoUrl.label"
+msgstr "رئيس التحرير: رابط الصورة"
+
+msgid "plugins.themes.alqalam.option.editorPhotoUrl.description"
+msgstr "الرابط الكامل لصورة مربعة. يمكن رفع الصورة عبر زر الصورة في أي محرر نصوص داخل OJS ثم نسخ عنوانها."
+
+msgid "plugins.themes.alqalam.option.editorMessage.label"
+msgstr "رئيس التحرير: الرسالة"
+
+msgid "plugins.themes.alqalam.option.showAffiliationsInLists.label"
+msgstr "انتماءات المؤلفين في القوائم"
+
+msgid "plugins.themes.alqalam.option.showAffiliationsInLists.option"
+msgstr "عرض انتماء كل مؤلف بجانب اسمه في فهرس الأعداد ونتائج البحث."
+
+msgid "plugins.themes.alqalam.option.showStatsCounters.label"
+msgstr "عدادات الاستخدام"
+
+msgid "plugins.themes.alqalam.option.showStatsCounters.description"
+msgstr "إجمالي مشاهدات الملخص وتنزيلات الملفات من إحصاءات OJS (تُحدَّث كل ساعة)."
+
+msgid "plugins.themes.alqalam.option.showStatsCounters.option"
+msgstr "عرض عدادي المشاهدات والتنزيلات في صفحة المقال."
+
+msgid "plugins.themes.alqalam.option.showDimensionsBadge.label"
+msgstr "شارة Dimensions"
+
+msgid "plugins.themes.alqalam.option.badges.description"
+msgstr "تُحمَّل شارات الاستشهاد من خوادم مزوّدها ولا تظهر إلا للمقالات التي لها DOI."
+
+msgid "plugins.themes.alqalam.option.showDimensionsBadge.option"
+msgstr "عرض شارة الاستشهادات Dimensions في صفحة المقال."
+
+msgid "plugins.themes.alqalam.option.showAltmetricBadge.label"
+msgstr "شارة Altmetric"
+
+msgid "plugins.themes.alqalam.option.showAltmetricBadge.option"
+msgstr "عرض شارة الاهتمام Altmetric في صفحة المقال."
+
+msgid "plugins.themes.alqalam.option.enableOpenGraph.label"
+msgstr "بيانات المشاركة الاجتماعية"
+
+msgid "plugins.themes.alqalam.option.enableOpenGraph.description"
+msgstr "وسوم Open Graph وTwitter Card تجعل الروابط المشتركة تعرض عنوان المقال وملخصه وغلافه في فيسبوك وX وواتساب وتيليغرام ولينكد إن."
+
+msgid "plugins.themes.alqalam.option.enableOpenGraph.option"
+msgstr "إضافة وسوم Open Graph / Twitter Card."
+
+msgid "plugins.themes.alqalam.home.editorMessage"
+msgstr "كلمة رئيس التحرير"
+
+msgid "plugins.themes.alqalam.article.usage"
+msgstr "الاستخدام"
+
+msgid "plugins.themes.alqalam.article.views"
+msgstr "مشاهدات الملخص"
+
+msgid "plugins.themes.alqalam.article.downloads"
+msgstr "التنزيلات"
+
+msgid "plugins.themes.alqalam.article.timeline"
+msgstr "تاريخ المقال"
+
+msgid "plugins.themes.alqalam.article.accepted"
+msgstr "تاريخ القبول"
+
+msgid "plugins.themes.alqalam.article.metrics"
+msgstr "مقاييس الاستشهاد"

@@ -158,6 +158,19 @@
 					</div>
 				</div>
 			</nav>
+
+			{* 4. Site-wide notice (theme option) *}
+			{if $alqalamNotice}
+				<div class="alq_notice" role="status" data-notice-id="{$alqalamNoticeId|escape}">
+					<div class="alq_container alq_notice_inner">
+						<span class="fa fa-bullhorn" aria-hidden="true"></span>
+						<div class="alq_notice_text">{$alqalamNotice|strip_unsafe_html|nl2br}</div>
+						<button type="button" class="alq_notice_close" aria-label="{translate|escape key="common.close"}">
+							<span class="fa fa-times" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
+			{/if}
 		</header><!-- .pkp_structure_head -->
 
 		{* Wrapper for page content and sidebars *}

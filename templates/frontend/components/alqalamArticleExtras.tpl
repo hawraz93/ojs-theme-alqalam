@@ -5,20 +5,63 @@
  * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
  *
  * @brief Blocks appended to the article details column through the
- *  Templates::Article::Details hook: submission date and share buttons.
+ *  Templates::Article::Details hook: usage counters, submission timeline,
+ *  share buttons and citation badges.
  *
  * @uses $article Submission
  * @uses $publication Publication
+ * @uses $alqalamStats array|null ['views' => int, 'downloads' => int]
+ * @uses $alqalamAcceptedDate string|null
+ * @uses $alqalamDoi string|null
  *}
-{if $activeTheme && $activeTheme->getOption('showSubmissionDates') && $article->getData('dateSubmitted')}
-	<div class="item alq_dates">
-		<section class="sub_item">
-			<h2 class="label">{translate key="plugins.themes.alqalam.article.received"}</h2>
-			<div class="value">{$article->getData('dateSubmitted')|date_format:$dateFormatShort}</div>
-		</section>
+
+{* Usage counters *}
+{if $activeTheme && $activeTheme->getOption('showStatsCounters') && $alqalamStats}
+	<div class="item alq_stats">
+		<h2 class="label">{translate key="plugins.themes.alqalam.article.usage"}</h2>
+		<ul class="value alq_stats_list">
+			<li>
+				<span class="fa fa-eye" aria-hidden="true"></span>
+				<strong>{$alqalamStats.views|number_format}</strong>
+				<span>{translate key="plugins.themes.alqalam.article.views"}</span>
+			</li>
+			<li>
+				<span class="fa fa-download" aria-hidden="true"></span>
+				<strong>{$alqalamStats.downloads|number_format}</strong>
+				<span>{translate key="plugins.themes.alqalam.article.downloads"}</span>
+			</li>
+		</ul>
 	</div>
 {/if}
 
+{* Submission timeline: received / accepted / published *}
+{if $activeTheme && $activeTheme->getOption('showSubmissionDates') && ($article->getData('dateSubmitted') || $alqalamAcceptedDate)}
+	<div class="item alq_timeline">
+		<h2 class="label">{translate key="plugins.themes.alqalam.article.timeline"}</h2>
+		<ol class="value alq_timeline_list">
+			{if $article->getData('dateSubmitted')}
+				<li>
+					<span class="alq_timeline_label">{translate key="plugins.themes.alqalam.article.received"}</span>
+					<span class="alq_timeline_date">{$article->getData('dateSubmitted')|date_format:$dateFormatShort}</span>
+				</li>
+			{/if}
+			{if $alqalamAcceptedDate}
+				<li>
+					<span class="alq_timeline_label">{translate key="plugins.themes.alqalam.article.accepted"}</span>
+					<span class="alq_timeline_date">{$alqalamAcceptedDate|date_format:$dateFormatShort}</span>
+				</li>
+			{/if}
+			{if $publication->getData('datePublished')}
+				<li>
+					<span class="alq_timeline_label">{translate key="submissions.published"}</span>
+					<span class="alq_timeline_date">{$publication->getData('datePublished')|date_format:$dateFormatShort}</span>
+				</li>
+			{/if}
+		</ol>
+	</div>
+{/if}
+
+{* Share buttons *}
 {if $activeTheme && $activeTheme->getOption('showShareButtons')}
 	{capture assign="alqShareUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="article" op="view" path=$article->getBestId()}{/capture}
 	{assign var="alqShareTitle" value=$publication->getLocalizedTitle()|strip_tags}
@@ -63,5 +106,22 @@
 				</button>
 			</li>
 		</ul>
+	</div>
+{/if}
+
+{* Citation badges (need a DOI) *}
+{if $alqalamDoi && $activeTheme && ($activeTheme->getOption('showDimensionsBadge') || $activeTheme->getOption('showAltmetricBadge'))}
+	<div class="item alq_badges">
+		<h2 class="label">{translate key="plugins.themes.alqalam.article.metrics"}</h2>
+		<div class="value alq_badges_list">
+			{if $activeTheme->getOption('showDimensionsBadge')}
+				<span class="__dimensions_badge_embed__" data-doi="{$alqalamDoi|escape}" data-style="small_circle" data-legend="hover-right"></span>
+				<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+			{/if}
+			{if $activeTheme->getOption('showAltmetricBadge')}
+				<div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="{$alqalamDoi|escape}"></div>
+				<script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+			{/if}
+		</div>
 	</div>
 {/if}

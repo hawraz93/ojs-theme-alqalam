@@ -56,6 +56,25 @@
 		document.body.removeChild(textarea);
 	}
 
+	// Dismissible site-wide notice (remembered per notice text in this browser)
+	var notice = document.querySelector('.alq_notice');
+	if (notice) {
+		var noticeKey = 'alqNoticeDismissed';
+		var noticeId = notice.getAttribute('data-notice-id') || '';
+		var dismissed = null;
+		try { dismissed = window.localStorage.getItem(noticeKey); } catch (e) { /* storage unavailable */ }
+		if (dismissed && dismissed === noticeId) {
+			notice.classList.add('is_dismissed');
+		}
+		var closeButton = notice.querySelector('.alq_notice_close');
+		if (closeButton) {
+			closeButton.addEventListener('click', function () {
+				notice.classList.add('is_dismissed');
+				try { window.localStorage.setItem(noticeKey, noticeId); } catch (e) { /* ignore */ }
+			});
+		}
+	}
+
 	// Back-to-top button
 	var backToTop = document.createElement('button');
 	backToTop.type = 'button';

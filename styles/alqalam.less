@@ -703,6 +703,61 @@ textarea:focus-visible {
 }
 
 // ---------------------------------------------------------------------------
+// Site-wide notice bar
+// ---------------------------------------------------------------------------
+.alq_notice {
+	background: fade(@alq-highlight, 18%);
+	border-bottom: 1px solid fade(@alq-highlight, 45%);
+	color: @alq-ink;
+	font-size: @font-sml;
+
+	&.is_dismissed {
+		display: none;
+	}
+}
+
+.alq_notice_inner {
+	display: flex;
+	align-items: flex-start;
+	gap: @base;
+	padding-top: @base;
+	padding-bottom: @base;
+
+	> .fa {
+		flex: none;
+		margin-top: 0.2em;
+		color: darken(@alq-highlight, 12%);
+	}
+}
+
+.alq_notice_text {
+	flex: 1 1 auto;
+	line-height: 1.5;
+
+	a {
+		color: @alq-accent;
+		font-weight: 700;
+	}
+}
+
+.alq_notice_close {
+	flex: none;
+	width: 28px;
+	height: 28px;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: @alq-muted;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background: fade(@alq-ink, 8%);
+		color: @alq-ink;
+	}
+}
+
+// ---------------------------------------------------------------------------
 // Buttons
 // ---------------------------------------------------------------------------
 .alq_btn {
@@ -1043,9 +1098,144 @@ textarea:focus-visible {
 	color: @alq-primary;
 }
 
+// --- Banner with the homepage image as background
+.alq_hero--image {
+	background-color: @alq-primary;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-bottom: 0;
+
+	// Dark overlay for readability
+	&:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		width: auto;
+		height: auto;
+		border-radius: 0;
+		background: linear-gradient(100deg, fade(@alq-primary-dark, 92%) 0%, fade(@alq-primary-dark, 78%) 55%, fade(@alq-primary-dark, 45%) 100%);
+		pointer-events: none;
+	}
+
+	.alq_hero_text,
+	.alq_hero_cover {
+		position: relative;
+		z-index: 1;
+	}
+
+	.alq_hero_kicker {
+		color: @alq-highlight;
+	}
+
+	.pkp_structure_main & .alq_hero_title,
+	.alq_hero_title {
+		color: @alq-white;
+	}
+
+	.alq_hero_desc,
+	.alq_hero_meta,
+	.alq_hero_meta strong {
+		color: rgba(255, 255, 255, 0.88);
+	}
+
+	.alq_btn--outline {
+		border-color: @alq-white;
+		color: @alq-white;
+
+		&:hover,
+		&:focus {
+			background: @alq-white;
+			color: @alq-primary;
+		}
+	}
+
+	.alq_btn--ghost {
+		color: @alq-white;
+
+		&:hover,
+		&:focus {
+			color: @alq-highlight;
+		}
+	}
+
+	.alq_hero_cover_caption {
+		color: @alq-white;
+	}
+}
+
 // --- Homepage image uploaded by the journal
 .alq_home .homepage_image img {
 	border-radius: @alq-radius;
+}
+
+// --- Editor-in-chief card
+.alq_editor_card {
+	.alq-card();
+	display: flex;
+	flex-direction: column;
+	gap: @double;
+	padding: @triple;
+	border-top: 4px solid @alq-accent;
+
+	@media (min-width: @screen-tablet) {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+}
+
+.alq_editor_photo {
+	flex: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 128px;
+	height: 128px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 4px solid @alq-surface;
+	box-shadow: @alq-shadow-sm;
+	background: @alq-surface;
+	color: @alq-muted;
+	font-size: 3rem;
+}
+
+.alq_editor_body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.alq_editor_kicker {
+	margin: 0 0 0.25rem;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: @alq-accent;
+}
+
+.pkp_structure_main .alq_editor_name {
+	margin: 0;
+	font-size: @font-lead;
+	line-height: 1.3;
+	color: @alq-primary;
+}
+
+.alq_editor_title {
+	margin: 0.25rem 0 @base;
+	color: @alq-muted;
+	font-weight: 500;
+}
+
+.alq_editor_message {
+	position: relative;
+	margin: 0 0 @base;
+	padding-inline-start: @double;
+	border-inline-start: 3px solid @alq-highlight;
+	font-family: @font-heading;
+	font-size: @font-bump;
+	line-height: 1.7;
+	color: @alq-ink;
 }
 
 // --- Announcements
@@ -1611,6 +1801,119 @@ textarea:focus-visible {
 	}
 }
 
+// Usage counters
+.alq_stats_list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: @base;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.15rem;
+		margin: 0;
+		padding: @base @half;
+		border-radius: @radius;
+		background: @alq-surface;
+		text-align: center;
+		font-size: 0.8rem;
+		color: @alq-muted;
+	}
+
+	.fa {
+		font-size: 1.1rem;
+		color: @alq-accent;
+	}
+
+	strong {
+		font-size: 1.35rem;
+		line-height: 1.2;
+		color: @alq-primary;
+	}
+}
+
+// Submission timeline
+.alq_timeline_list {
+	position: relative;
+	margin: 0;
+	padding: 0 0 0 @double;
+	list-style: none;
+	border-inline-start: 2px solid @alq-line;
+
+	li {
+		position: relative;
+		margin: 0 0 @base;
+		padding: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0.35em;
+			inset-inline-start: -(@double + 6px);
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: @alq-highlight;
+			box-shadow: 0 0 0 3px @alq-white;
+		}
+
+		&:last-child:before {
+			background: @alq-accent;
+		}
+	}
+
+	.alq_timeline_label {
+		display: block;
+		font-size: 0.78rem;
+		color: @alq-muted;
+	}
+
+	.alq_timeline_date {
+		display: block;
+		font-weight: 600;
+		color: @alq-ink;
+	}
+}
+
+// Citation badges
+.alq_badges_list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: @double;
+	min-height: 48px;
+}
+
+// Authors with affiliations in lists
+.alq_authors_affiliations {
+
+	.alq_author {
+		display: inline;
+	}
+
+	.alq_author_affiliation {
+		font-size: 0.8rem;
+		color: @alq-muted;
+		font-weight: 400;
+
+		&:before {
+			content: ' (';
+		}
+
+		&:after {
+			content: ')';
+		}
+	}
+}
+
 // Share buttons
 .alq_share_list {
 	display: flex;
@@ -2026,6 +2329,20 @@ body[dir="rtl"] {
 
 	.alq_hero_cover img {
 		transform: rotate(2deg);
+	}
+
+	.alq_hero--image:after {
+		left: 0;
+		background: linear-gradient(260deg, fade(@alq-primary-dark, 92%) 0%, fade(@alq-primary-dark, 78%) 55%, fade(@alq-primary-dark, 45%) 100%);
+	}
+
+	.alq_editor_kicker {
+		letter-spacing: 0;
+		text-transform: none;
+	}
+
+	.alq_timeline_list {
+		padding: 0 @double 0 0;
 	}
 
 	.alq_hero_cover a:hover img,

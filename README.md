@@ -26,8 +26,14 @@ time (see [docs/UNINSTALL.md](docs/UNINSTALL.md)).
   current issue cover and call-to-action buttons; announcements; current
   issue as cards; optional "Indexing and partners" logo block.
 - **Improved article page** – card layout for the details column, prominent
-  PDF button, share buttons (X, Facebook, LinkedIn, WhatsApp, Telegram,
-  e-mail, copy link) and an optional "received" date.
+  PDF button, views/downloads counters, article history (received,
+  accepted, published), share buttons (X, Facebook, LinkedIn, WhatsApp,
+  Telegram, e-mail, copy link) and optional Dimensions / Altmetric badges.
+- **Social sharing metadata** – Open Graph and Twitter Card tags so shared
+  links show the title, abstract and cover image.
+- **Homepage extras** – optional banner background image, editor-in-chief
+  card with photo and message, dismissible site-wide notice bar, author
+  affiliations in article lists.
 - **Issue archive** as a grid of covers; site homepage as journal cards.
 - **Structured footer** – university + journal identity, ISSN, quick links,
   contact details (from Journal Settings > Contact), social media icons and
@@ -122,8 +128,14 @@ Fonts: Roboto (Apache 2.0), Almarai (OFL 1.1), Amiri (OFL 1.1).
 - **صفحة رئيسية حديثة**: لافتة تعرض اسم المجلة ووصفها والترقيم الدولي وغلاف
   العدد الحالي وأزرار الإجراءات؛ الإعلانات؛ العدد الحالي على شكل بطاقات؛
   قسم اختياري لشعارات الفهرسة.
-- **صفحة مقال محسّنة**: عمود تفاصيل على شكل بطاقات، زر PDF بارز، أزرار
-  مشاركة، وتاريخ استلام اختياري.
+- **صفحة مقال محسّنة**: عمود تفاصيل على شكل بطاقات، زر PDF بارز، عدادا
+  المشاهدات والتنزيلات، تاريخ المقال (الاستلام والقبول والنشر)، أزرار
+  مشاركة، وشارات Dimensions / Altmetric اختيارية.
+- **بيانات المشاركة الاجتماعية**: وسوم Open Graph وTwitter Card لتظهر
+  الروابط المشتركة بعنوان المقال وملخصه وغلافه.
+- **إضافات الصفحة الرئيسية**: صورة خلفية اختيارية للافتة، بطاقة رئيس
+  التحرير بصورة ورسالة، شريط إشعار عام قابل للإغلاق، وانتماءات المؤلفين في
+  قوائم المقالات.
 - **أرشيف الأعداد** كشبكة أغلفة، وصفحة الموقع كبطاقات للمجلات.
 - **تذييل منظم**: هوية الجامعة والمجلة، الترقيم الدولي، روابط سريعة، بيانات
   الاتصال، أيقونات التواصل الاجتماعي، ونص التذييل الخاص بالمجلة.

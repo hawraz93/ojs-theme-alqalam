@@ -202,3 +202,96 @@ msgstr "Share on {$network}"
 
 msgid "plugins.themes.alqalam.backToTop"
 msgstr "Back to top"
+
+msgid "plugins.themes.alqalam.option.noticeText.label"
+msgstr "Site-wide notice"
+
+msgid "plugins.themes.alqalam.option.noticeText.description"
+msgstr "A short message shown under the navigation bar on every page, e.g. a call for papers or a maintenance notice. Leave empty to hide. Basic HTML links are allowed; readers can dismiss it."
+
+msgid "plugins.themes.alqalam.option.useHomepageImageAsHero.label"
+msgstr "Banner background"
+
+msgid "plugins.themes.alqalam.option.useHomepageImageAsHero.description"
+msgstr "Uses the homepage image (Settings > Website > Appearance > Setup > Homepage Image) as the background of the homepage banner. Choose a wide, calm photo (e.g. 1600×600)."
+
+msgid "plugins.themes.alqalam.option.useHomepageImageAsHero.option"
+msgstr "Show the homepage image as the banner background instead of below it."
+
+msgid "plugins.themes.alqalam.option.editorName.label"
+msgstr "Editor-in-chief: name"
+
+msgid "plugins.themes.alqalam.option.editorName.description"
+msgstr "Fill in to show an editor-in-chief card on the homepage (name, title, photo and a short message). Leave empty to hide the card."
+
+msgid "plugins.themes.alqalam.option.editorTitle.label"
+msgstr "Editor-in-chief: title / position"
+
+msgid "plugins.themes.alqalam.option.editorPhotoUrl.label"
+msgstr "Editor-in-chief: photo URL"
+
+msgid "plugins.themes.alqalam.option.editorPhotoUrl.description"
+msgstr "Full URL of a square photo. You can upload the image through the image button of any rich-text editor in OJS and copy its address."
+
+msgid "plugins.themes.alqalam.option.editorMessage.label"
+msgstr "Editor-in-chief: message"
+
+msgid "plugins.themes.alqalam.option.showAffiliationsInLists.label"
+msgstr "Author affiliations in lists"
+
+msgid "plugins.themes.alqalam.option.showAffiliationsInLists.option"
+msgstr "Show each author's affiliation next to the name in issue tables of contents and search results."
+
+msgid "plugins.themes.alqalam.option.showStatsCounters.label"
+msgstr "Usage counters"
+
+msgid "plugins.themes.alqalam.option.showStatsCounters.description"
+msgstr "Total abstract views and file downloads from the OJS usage statistics (updated hourly)."
+
+msgid "plugins.themes.alqalam.option.showStatsCounters.option"
+msgstr "Show views and downloads counters on the article page."
+
+msgid "plugins.themes.alqalam.option.showDimensionsBadge.label"
+msgstr "Dimensions badge"
+
+msgid "plugins.themes.alqalam.option.badges.description"
+msgstr "Citation badges are loaded from the provider's servers and only appear for articles with a DOI."
+
+msgid "plugins.themes.alqalam.option.showDimensionsBadge.option"
+msgstr "Show the Dimensions citation badge on the article page."
+
+msgid "plugins.themes.alqalam.option.showAltmetricBadge.label"
+msgstr "Altmetric badge"
+
+msgid "plugins.themes.alqalam.option.showAltmetricBadge.option"
+msgstr "Show the Altmetric attention badge on the article page."
+
+msgid "plugins.themes.alqalam.option.enableOpenGraph.label"
+msgstr "Social sharing metadata"
+
+msgid "plugins.themes.alqalam.option.enableOpenGraph.description"
+msgstr "Open Graph and Twitter Card tags make shared links show the article title, abstract and cover on Facebook, X, WhatsApp, Telegram and LinkedIn."
+
+msgid "plugins.themes.alqalam.option.enableOpenGraph.option"
+msgstr "Add Open Graph / Twitter Card meta tags."
+
+msgid "plugins.themes.alqalam.home.editorMessage"
+msgstr "Message from the Editor-in-Chief"
+
+msgid "plugins.themes.alqalam.article.usage"
+msgstr "Usage"
+
+msgid "plugins.themes.alqalam.article.views"
+msgstr "Abstract views"
+
+msgid "plugins.themes.alqalam.article.downloads"
+msgstr "Downloads"
+
+msgid "plugins.themes.alqalam.article.timeline"
+msgstr "Article history"
+
+msgid "plugins.themes.alqalam.article.accepted"
+msgstr "Accepted"
+
+msgid "plugins.themes.alqalam.article.metrics"
+msgstr "Citation metrics"
