@@ -1,0 +1,204 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Al-Qalam University OJS Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-07T00:00:00+03:00\n"
+"PO-Revision-Date: 2026-10-07T00:00:00+03:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.alqalam.name"
+msgstr "Al-Qalam University Theme"
+
+msgid "plugins.themes.alqalam.description"
+msgstr "Official theme of Al-Qalam University journals. Uses the university's visual identity (navy, plum and gold), a bilingual Arabic/English layout with full right-to-left support, a modern homepage with the current issue, announcements and indexing logos, and an improved article page."
+
+msgid "plugins.themes.alqalam.university.name"
+msgstr "Al-Qalam University"
+
+msgid "plugins.themes.alqalam.option.primaryColour.label"
+msgstr "Primary colour"
+
+msgid "plugins.themes.alqalam.option.primaryColour.description"
+msgstr "Used for the navigation bar, footer and headings. Default: the navy blue of the university logo (#283078)."
+
+msgid "plugins.themes.alqalam.option.accentColour.label"
+msgstr "Accent colour"
+
+msgid "plugins.themes.alqalam.option.accentColour.description"
+msgstr "Used for links and buttons. Default: the plum of the university logo (#910051)."
+
+msgid "plugins.themes.alqalam.option.highlightColour.label"
+msgstr "Highlight colour"
+
+msgid "plugins.themes.alqalam.option.highlightColour.description"
+msgstr "Used sparingly for small accents such as underlines and section markers. Default: the gold of the university logo (#F0A018)."
+
+msgid "plugins.themes.alqalam.option.headerStyle.label"
+msgstr "Header style"
+
+msgid "plugins.themes.alqalam.option.headerStyle.description"
+msgstr "Choose how the top of the page looks."
+
+msgid "plugins.themes.alqalam.option.headerStyle.light"
+msgstr "Light: white header with the logo, followed by a coloured navigation bar."
+
+msgid "plugins.themes.alqalam.option.headerStyle.dark"
+msgstr "Dark: the whole header uses the primary colour."
+
+msgid "plugins.themes.alqalam.option.showUniversityBar.label"
+msgstr "University bar"
+
+msgid "plugins.themes.alqalam.option.showUniversityBar.option"
+msgstr "Show a thin bar above the header with the university name, a link to the university website and the language switcher."
+
+msgid "plugins.themes.alqalam.option.showUniversityLogo.label"
+msgstr "University logo"
+
+msgid "plugins.themes.alqalam.option.showUniversityLogo.option"
+msgstr "Show the university logo next to the journal name in the header and in the footer."
+
+msgid "plugins.themes.alqalam.option.universityName.label"
+msgstr "University name"
+
+msgid "plugins.themes.alqalam.option.universityName.description"
+msgstr "Shown in the university bar and in the footer. Leave empty to use \"Al-Qalam University\" / \"جامعة القلم\"."
+
+msgid "plugins.themes.alqalam.option.universityUrl.label"
+msgstr "University website URL"
+
+msgid "plugins.themes.alqalam.option.showJournalDescription.label"
+msgstr "Journal description on the homepage"
+
+msgid "plugins.themes.alqalam.option.showJournalDescription.option"
+msgstr "Show the journal description (Settings > Journal > Masthead) in the homepage banner."
+
+msgid "plugins.themes.alqalam.option.showIssueCover.label"
+msgstr "Current issue cover"
+
+msgid "plugins.themes.alqalam.option.showIssueCover.option"
+msgstr "Show the cover of the current issue in the homepage banner."
+
+msgid "plugins.themes.alqalam.option.showSubmissionDates.label"
+msgstr "Submission date"
+
+msgid "plugins.themes.alqalam.option.showSubmissionDates.description"
+msgstr "The date the article was first submitted to the journal (shown next to the publication date)."
+
+msgid "plugins.themes.alqalam.option.showSubmissionDates.option"
+msgstr "Show the received date on the article page."
+
+msgid "plugins.themes.alqalam.option.showShareButtons.label"
+msgstr "Share buttons"
+
+msgid "plugins.themes.alqalam.option.showShareButtons.option"
+msgstr "Show social sharing and copy-link buttons on the article page."
+
+msgid "plugins.themes.alqalam.option.indexingHtml.label"
+msgstr "Indexing and partners block"
+
+msgid "plugins.themes.alqalam.option.indexingHtml.description"
+msgstr "HTML shown at the bottom of the homepage, e.g. logos of the databases that index the journal (Google Scholar, Crossref, DOAJ...). Example: &lt;a href=\"https://scholar.google.com\"&gt;&lt;img src=\"/public/site/scholar.png\" alt=\"Google Scholar\"&gt;&lt;/a&gt;"
+
+msgid "plugins.themes.alqalam.option.social.facebook"
+msgstr "Facebook page URL"
+
+msgid "plugins.themes.alqalam.option.social.instagram"
+msgstr "Instagram URL"
+
+msgid "plugins.themes.alqalam.option.social.youtube"
+msgstr "YouTube channel URL"
+
+msgid "plugins.themes.alqalam.option.social.x"
+msgstr "X (Twitter) URL"
+
+msgid "plugins.themes.alqalam.option.social.telegram"
+msgstr "Telegram URL"
+
+msgid "plugins.themes.alqalam.option.social.linkedin"
+msgstr "LinkedIn URL"
+
+msgid "plugins.themes.alqalam.option.social.whatsapp"
+msgstr "WhatsApp link (https://wa.me/...)"
+
+msgid "plugins.themes.alqalam.topbar.universitySite"
+msgstr "Visit the university website"
+
+msgid "plugins.themes.alqalam.issn.print"
+msgstr "ISSN (Print):"
+
+msgid "plugins.themes.alqalam.issn.online"
+msgstr "ISSN (Online):"
+
+msgid "plugins.themes.alqalam.home.publishedBy"
+msgstr "Published by"
+
+msgid "plugins.themes.alqalam.home.currentIssue"
+msgstr "Current issue"
+
+msgid "plugins.themes.alqalam.home.makeSubmission"
+msgstr "Submit an article"
+
+msgid "plugins.themes.alqalam.home.archives"
+msgstr "Browse the archives"
+
+msgid "plugins.themes.alqalam.home.viewIssue"
+msgstr "View issue"
+
+msgid "plugins.themes.alqalam.home.indexing"
+msgstr "Indexing and partners"
+
+msgid "plugins.themes.alqalam.home.journals"
+msgstr "Our journals"
+
+msgid "plugins.themes.alqalam.home.journalsIntro"
+msgstr "Peer-reviewed scientific journals published by the university."
+
+msgid "plugins.themes.alqalam.footer.about"
+msgstr "About the journal"
+
+msgid "plugins.themes.alqalam.footer.quickLinks"
+msgstr "Quick links"
+
+msgid "plugins.themes.alqalam.footer.contact"
+msgstr "Contact"
+
+msgid "plugins.themes.alqalam.footer.contactPage"
+msgstr "Contact page"
+
+msgid "plugins.themes.alqalam.footer.followUs"
+msgstr "Follow us"
+
+msgid "plugins.themes.alqalam.footer.website"
+msgstr "University website"
+
+msgid "plugins.themes.alqalam.footer.copyright"
+msgstr "© {$year} {$name}. All rights reserved."
+
+msgid "plugins.themes.alqalam.footer.poweredBy"
+msgstr "Powered by Open Journal Systems"
+
+msgid "plugins.themes.alqalam.article.received"
+msgstr "Received"
+
+msgid "plugins.themes.alqalam.share.title"
+msgstr "Share this article"
+
+msgid "plugins.themes.alqalam.share.copyLink"
+msgstr "Copy link"
+
+msgid "plugins.themes.alqalam.share.copied"
+msgstr "Link copied"
+
+msgid "plugins.themes.alqalam.share.email"
+msgstr "Share by e-mail"
+
+msgid "plugins.themes.alqalam.share.on"
+msgstr "Share on {$network}"
+
+msgid "plugins.themes.alqalam.backToTop"
+msgstr "Back to top"

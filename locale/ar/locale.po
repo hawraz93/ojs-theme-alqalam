@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Al-Qalam University OJS Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-07T00:00:00+03:00\n"
+"PO-Revision-Date: 2026-10-07T00:00:00+03:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+msgid "plugins.themes.alqalam.name"
+msgstr "نمط جامعة القلم"
+
+msgid "plugins.themes.alqalam.description"
+msgstr "النمط الرسمي لمجلات جامعة القلم. يعتمد الهوية البصرية للجامعة (الكحلي والأرجواني والذهبي)، وتخطيطاً ثنائي اللغة (عربي/إنجليزي) مع دعم كامل للكتابة من اليمين إلى اليسار، وصفحة رئيسية حديثة تعرض العدد الحالي والإعلانات وشعارات الفهرسة، وصفحة مقال محسّنة."
+
+msgid "plugins.themes.alqalam.university.name"
+msgstr "جامعة القلم"
+
+msgid "plugins.themes.alqalam.option.primaryColour.label"
+msgstr "اللون الأساسي"
+
+msgid "plugins.themes.alqalam.option.primaryColour.description"
+msgstr "يُستخدم لشريط التنقل والتذييل والعناوين. الافتراضي: الأزرق الكحلي من شعار الجامعة (#283078)."
+
+msgid "plugins.themes.alqalam.option.accentColour.label"
+msgstr "اللون الثانوي"
+
+msgid "plugins.themes.alqalam.option.accentColour.description"
+msgstr "يُستخدم للروابط والأزرار. الافتراضي: الأرجواني من شعار الجامعة (#910051)."
+
+msgid "plugins.themes.alqalam.option.highlightColour.label"
+msgstr "لون التمييز"
+
+msgid "plugins.themes.alqalam.option.highlightColour.description"
+msgstr "يُستخدم بشكل محدود للمسات صغيرة مثل الخطوط السفلية وعلامات الأقسام. الافتراضي: الذهبي من شعار الجامعة (#F0A018)."
+
+msgid "plugins.themes.alqalam.option.headerStyle.label"
+msgstr "نمط الترويسة"
+
+msgid "plugins.themes.alqalam.option.headerStyle.description"
+msgstr "اختر شكل أعلى الصفحة."
+
+msgid "plugins.themes.alqalam.option.headerStyle.light"
+msgstr "فاتح: ترويسة بيضاء مع الشعار يليها شريط تنقل ملوّن."
+
+msgid "plugins.themes.alqalam.option.headerStyle.dark"
+msgstr "داكن: الترويسة كاملة باللون الأساسي."
+
+msgid "plugins.themes.alqalam.option.showUniversityBar.label"
+msgstr "شريط الجامعة"
+
+msgid "plugins.themes.alqalam.option.showUniversityBar.option"
+msgstr "إظهار شريط رفيع أعلى الترويسة يحوي اسم الجامعة ورابط موقعها ومبدّل اللغة."
+
+msgid "plugins.themes.alqalam.option.showUniversityLogo.label"
+msgstr "شعار الجامعة"
+
+msgid "plugins.themes.alqalam.option.showUniversityLogo.option"
+msgstr "إظهار شعار الجامعة بجانب اسم المجلة في الترويسة وفي التذييل."
+
+msgid "plugins.themes.alqalam.option.universityName.label"
+msgstr "اسم الجامعة"
+
+msgid "plugins.themes.alqalam.option.universityName.description"
+msgstr "يظهر في شريط الجامعة وفي التذييل. اتركه فارغاً لاستخدام \"جامعة القلم\" / \"Al-Qalam University\"."
+
+msgid "plugins.themes.alqalam.option.universityUrl.label"
+msgstr "رابط موقع الجامعة"
+
+msgid "plugins.themes.alqalam.option.showJournalDescription.label"
+msgstr "وصف المجلة في الصفحة الرئيسية"
+
+msgid "plugins.themes.alqalam.option.showJournalDescription.option"
+msgstr "إظهار وصف المجلة (الإعدادات > المجلة > الهوية) في لافتة الصفحة الرئيسية."
+
+msgid "plugins.themes.alqalam.option.showIssueCover.label"
+msgstr "غلاف العدد الحالي"
+
+msgid "plugins.themes.alqalam.option.showIssueCover.option"
+msgstr "إظهار غلاف العدد الحالي في لافتة الصفحة الرئيسية."
+
+msgid "plugins.themes.alqalam.option.showSubmissionDates.label"
+msgstr "تاريخ الاستلام"
+
+msgid "plugins.themes.alqalam.option.showSubmissionDates.description"
+msgstr "تاريخ تقديم المقال إلى المجلة لأول مرة (يظهر بجانب تاريخ النشر)."
+
+msgid "plugins.themes.alqalam.option.showSubmissionDates.option"
+msgstr "إظهار تاريخ الاستلام في صفحة المقال."
+
+msgid "plugins.themes.alqalam.option.showShareButtons.label"
+msgstr "أزرار المشاركة"
+
+msgid "plugins.themes.alqalam.option.showShareButtons.option"
+msgstr "إظهار أزرار المشاركة الاجتماعية ونسخ الرابط في صفحة المقال."
+
+msgid "plugins.themes.alqalam.option.indexingHtml.label"
+msgstr "قسم الفهرسة والشركاء"
+
+msgid "plugins.themes.alqalam.option.indexingHtml.description"
+msgstr "كود HTML يُعرض أسفل الصفحة الرئيسية، مثل شعارات قواعد البيانات التي تفهرس المجلة (Google Scholar وCrossref وDOAJ...). مثال: &lt;a href=\"https://scholar.google.com\"&gt;&lt;img src=\"/public/site/scholar.png\" alt=\"Google Scholar\"&gt;&lt;/a&gt;"
+
+msgid "plugins.themes.alqalam.option.social.facebook"
+msgstr "رابط صفحة فيسبوك"
+
+msgid "plugins.themes.alqalam.option.social.instagram"
+msgstr "رابط إنستغرام"
+
+msgid "plugins.themes.alqalam.option.social.youtube"
+msgstr "رابط قناة يوتيوب"
+
+msgid "plugins.themes.alqalam.option.social.x"
+msgstr "رابط X (تويتر)"
+
+msgid "plugins.themes.alqalam.option.social.telegram"
+msgstr "رابط تيليغرام"
+
+msgid "plugins.themes.alqalam.option.social.linkedin"
+msgstr "رابط لينكد إن"
+
+msgid "plugins.themes.alqalam.option.social.whatsapp"
+msgstr "رابط واتساب (https://wa.me/...)"
+
+msgid "plugins.themes.alqalam.topbar.universitySite"
+msgstr "زيارة موقع الجامعة"
+
+msgid "plugins.themes.alqalam.issn.print"
+msgstr "الترقيم الدولي (ورقي):"
+
+msgid "plugins.themes.alqalam.issn.online"
+msgstr "الترقيم الدولي (إلكتروني):"
+
+msgid "plugins.themes.alqalam.home.publishedBy"
+msgstr "تصدر عن"
+
+msgid "plugins.themes.alqalam.home.currentIssue"
+msgstr "العدد الحالي"
+
+msgid "plugins.themes.alqalam.home.makeSubmission"
+msgstr "تقديم بحث"
+
+msgid "plugins.themes.alqalam.home.archives"
+msgstr "تصفح الأرشيف"
+
+msgid "plugins.themes.alqalam.home.viewIssue"
+msgstr "عرض العدد"
+
+msgid "plugins.themes.alqalam.home.indexing"
+msgstr "الفهرسة والشركاء"
+
+msgid "plugins.themes.alqalam.home.journals"
+msgstr "مجلاتنا"
+
+msgid "plugins.themes.alqalam.home.journalsIntro"
+msgstr "مجلات علمية محكّمة تصدر عن الجامعة."
+
+msgid "plugins.themes.alqalam.footer.about"
+msgstr "عن المجلة"
+
+msgid "plugins.themes.alqalam.footer.quickLinks"
+msgstr "روابط سريعة"
+
+msgid "plugins.themes.alqalam.footer.contact"
+msgstr "اتصل بنا"
+
+msgid "plugins.themes.alqalam.footer.contactPage"
+msgstr "صفحة الاتصال"
+
+msgid "plugins.themes.alqalam.footer.followUs"
+msgstr "تابعنا"
+
+msgid "plugins.themes.alqalam.footer.website"
+msgstr "موقع الجامعة"
+
+msgid "plugins.themes.alqalam.footer.copyright"
+msgstr "© {$year} {$name}. جميع الحقوق محفوظة."
+
+msgid "plugins.themes.alqalam.footer.poweredBy"
+msgstr "يعمل بنظام Open Journal Systems"
+
+msgid "plugins.themes.alqalam.article.received"
+msgstr "تاريخ الاستلام"
+
+msgid "plugins.themes.alqalam.share.title"
+msgstr "مشاركة المقال"
+
+msgid "plugins.themes.alqalam.share.copyLink"
+msgstr "نسخ الرابط"
+
+msgid "plugins.themes.alqalam.share.copied"
+msgstr "تم نسخ الرابط"
+
+msgid "plugins.themes.alqalam.share.email"
+msgstr "مشاركة عبر البريد الإلكتروني"
+
+msgid "plugins.themes.alqalam.share.on"
+msgstr "مشاركة على {$network}"
+
+msgid "plugins.themes.alqalam.backToTop"
+msgstr "العودة إلى الأعلى"

@@ -1,0 +1,2187 @@
+/**
+ * @file plugins/themes/alqalam/styles/alqalam.less
+ *
+ * Copyright (c) 2026 Al-Qalam University, Kirkuk
+ * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
+ *
+ * @brief Al-Qalam University theme styles.
+ *
+ * This file is compiled together with the default theme's stylesheet (it is
+ * appended through ThemePlugin::modifyStyle). Variables declared here
+ * override the parent theme's variables; the rules below override or extend
+ * the parent theme's rules.
+ */
+
+// ---------------------------------------------------------------------------
+// Brand variables (the colours are injected from the theme options)
+// ---------------------------------------------------------------------------
+@alq-primary:    #283078; // navy
+@alq-accent:     #910051; // plum
+@alq-highlight:  #F0A018; // gold
+@alq-theme-url:  '/plugins/themes/alqalam';
+
+@alq-primary-dark:  darken(@alq-primary, 8%);
+@alq-primary-soft:  fade(@alq-primary, 6%);
+@alq-accent-dark:   darken(@alq-accent, 8%);
+@alq-accent-soft:   fade(@alq-accent, 8%);
+@alq-ink:           #1b2033;
+@alq-muted:         #5d6478;
+@alq-line:          #e2e5ee;
+@alq-surface:       #f5f6fa;
+@alq-white:         #fff;
+@alq-radius:        10px;
+@alq-shadow:        0 8px 28px rgba(20, 24, 60, 0.10);
+@alq-shadow-sm:     0 1px 2px rgba(20, 24, 60, 0.05);
+@alq-container:     1200px;
+@alq-topbar-height: 38px;
+
+// ---------------------------------------------------------------------------
+// Overrides of the parent theme's variables
+// ---------------------------------------------------------------------------
+@bg-base:              @alq-primary;
+@primary:              @alq-accent;
+@primary-lift:         lighten(@alq-accent, 10%);
+@text:                 @alq-ink;
+@text-light:           @alq-muted;
+@bg-shade:             @alq-surface;
+@bg-border-color:      @alq-line;
+@radius:               6px;
+@rem:                  15px;
+@font:                 "Roboto", "Almarai", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+@font-heading:         "Roboto", "Amiri", Georgia, "Times New Roman", serif;
+@font-site-title:      @font-heading;
+
+// CSS custom properties for scripts and inline use
+:root {
+	--alq-primary: @alq-primary;
+	--alq-accent: @alq-accent;
+	--alq-highlight: @alq-highlight;
+}
+
+// ---------------------------------------------------------------------------
+// Mixins
+// ---------------------------------------------------------------------------
+.alq-card() {
+	background: @alq-white;
+	border: 1px solid @alq-line;
+	border-radius: @alq-radius;
+	box-shadow: @alq-shadow-sm;
+}
+
+.alq-section-title() {
+	position: relative;
+	margin: 0 0 @double;
+	padding-bottom: @half;
+	font-family: @font-heading;
+	font-size: @font-lead;
+	line-height: @line-lead;
+	font-weight: 700;
+	color: @alq-primary;
+
+	&:after {
+		content: '';
+		display: block;
+		width: 56px;
+		height: 4px;
+		margin-top: @half;
+		border-radius: 2px;
+		background: linear-gradient(90deg, @alq-accent, @alq-highlight);
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Base
+// ---------------------------------------------------------------------------
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	background: @alq-white;
+}
+
+a {
+	transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.alq_container {
+	width: 100%;
+	max-width: @alq-container;
+	margin: 0 auto;
+	padding-left: @double;
+	padding-right: @double;
+}
+
+// Never let a long title or label create a horizontal scrollbar
+.pkp_structure_page {
+	overflow-x: clip;
+}
+
+.pkp_structure_main {
+	overflow-wrap: break-word;
+}
+
+// Remove the parent's vertical hairlines around the main column
+.pkp_structure_main:before,
+.pkp_structure_main:after {
+	display: none;
+}
+
+.pkp_structure_main {
+	.page > h1,
+	> h1 {
+		color: @alq-primary;
+	}
+}
+
+// Focus outline consistent with the brand
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+	outline: 3px solid fade(@alq-highlight, 70%);
+	outline-offset: 2px;
+}
+
+// ---------------------------------------------------------------------------
+// Header
+// ---------------------------------------------------------------------------
+.alq_head {
+	position: relative;
+	background: @alq-white;
+	border-bottom: 0;
+}
+
+// --- University bar
+.alq_topbar {
+	background: @alq-primary-dark;
+	color: @alq-white;
+	font-size: @font-sml;
+	line-height: @alq-topbar-height;
+}
+
+.alq_topbar_inner {
+	display: flex;
+	align-items: center;
+	gap: @double;
+	min-height: @alq-topbar-height;
+}
+
+.alq_topbar_univ {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	color: @alq-white;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	.fa {
+		color: @alq-highlight;
+	}
+
+	&:hover,
+	&:focus {
+		color: @alq-white;
+		text-decoration: underline;
+	}
+}
+
+.alq_topbar_tools {
+	display: flex;
+	align-items: center;
+	gap: @base;
+}
+
+// --- Language switcher
+.alq_lang {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+
+	> .fa {
+		opacity: 0.8;
+	}
+
+	ul {
+		display: inline-flex;
+		gap: 0.15em;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	a,
+	span {
+		display: inline-block;
+		padding: 0 0.7em;
+		border-radius: 999px;
+		line-height: 1.7;
+		color: @alq-white;
+		text-decoration: none;
+	}
+
+	a:hover,
+	a:focus {
+		background: rgba(255, 255, 255, 0.14);
+		color: @alq-white;
+	}
+
+	.current span {
+		background: @alq-highlight;
+		color: @alq-primary-dark;
+		font-weight: 700;
+	}
+}
+
+// --- Masthead (logos, journal title, search)
+.alq_masthead {
+	padding: @double 0;
+}
+
+.alq_masthead_inner {
+	display: flex;
+	align-items: center;
+	gap: @double;
+}
+
+.alq_brand {
+	display: flex;
+	align-items: center;
+	gap: @double;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.alq_brand_univ {
+	flex: none;
+	display: block;
+
+	img {
+		display: block;
+		width: auto;
+		height: 64px;
+	}
+}
+
+.alq_brand_text {
+	min-width: 0;
+}
+
+.alq_brand_logo_row {
+	display: flex;
+	align-items: center;
+	gap: @base;
+	min-width: 0;
+}
+
+.alq_brand_logo img {
+	display: block;
+	width: auto;
+	max-height: 84px;
+	max-width: 100%;
+}
+
+.alq_brand_logo_row--with-title .alq_brand_logo img {
+	max-height: 72px;
+	max-width: 160px;
+	object-fit: contain;
+}
+
+.alq_brand_title {
+	display: inline-block;
+	font-family: @font-heading;
+	font-size: 1.45rem;
+	line-height: 1.25;
+	font-weight: 700;
+	color: @alq-primary;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: @alq-accent;
+	}
+}
+
+.alq_brand_sub {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.2em 1.2em;
+	margin-top: 0.35rem;
+	font-size: 0.86rem;
+	line-height: 1.5;
+	color: @alq-muted;
+}
+
+.alq_issn_label {
+	font-weight: 700;
+	color: @alq-accent;
+}
+
+.alq_masthead_search {
+	display: none;
+	flex: none;
+	align-items: stretch;
+	width: 300px;
+	border: 1px solid @alq-line;
+	border-radius: 999px;
+	background: @alq-surface;
+	overflow: hidden;
+
+	&:focus-within {
+		border-color: @alq-accent;
+		background: @alq-white;
+	}
+
+	input[type="search"] {
+		flex: 1 1 auto;
+		min-width: 0;
+		padding: 0 1.1em;
+		border: 0;
+		background: transparent;
+		font-family: @font;
+		font-size: @font-sml;
+		line-height: 2.6;
+		color: @alq-ink;
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+	button {
+		flex: none;
+		width: 44px;
+		border: 0;
+		background: @alq-accent;
+		color: @alq-white;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			background: @alq-accent-dark;
+		}
+	}
+}
+
+// --- Mobile menu toggle (hamburger) – make it a normal flex item
+.alq_head .pkp_site_nav_toggle {
+	position: relative;
+	top: auto;
+	left: auto;
+	flex: none;
+	width: 44px;
+	height: 44px;
+	border-radius: 8px;
+	box-shadow: none;
+	background: @alq-primary-soft;
+
+	> span {
+		border-bottom-color: @alq-primary;
+
+		&:before,
+		&:after {
+			background: @alq-primary;
+		}
+	}
+
+	&:focus {
+		outline: 2px solid @alq-highlight;
+	}
+}
+
+// --- Navigation bar
+.alq_nav {
+	background: @alq-primary;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.alq_nav_inner {
+	position: relative;
+}
+
+// Mobile: the parent opens the menu as an absolute panel under the header
+@media (max-width: (@screen-desktop - 1px)) {
+
+	.pkp_site_nav_menu.alq_nav {
+		left: 0;
+		padding: @base 0 @double;
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+
+		.pkp_nav_list a {
+			padding: 0.45rem 0;
+			font-size: @font-base;
+		}
+
+		.pkp_navigation_primary > li > a {
+			font-weight: 600;
+		}
+
+		.pkp_navigation_user {
+			margin-top: @base;
+			padding-top: @base;
+			border-top: 1px solid rgba(255, 255, 255, 0.15);
+		}
+
+		.pkp_navigation_search_wrapper {
+			margin-top: @base;
+			padding-top: @base;
+			border-top: 1px solid rgba(255, 255, 255, 0.15);
+		}
+	}
+}
+
+// Dark header variant
+.alq_header_dark {
+
+	.alq_masthead {
+		background: @alq-primary;
+	}
+
+	.alq_brand_title {
+		color: @alq-white;
+
+		&:hover,
+		&:focus {
+			color: @alq-highlight;
+		}
+	}
+
+	.alq_brand_sub {
+		color: rgba(255, 255, 255, 0.78);
+	}
+
+	.alq_issn_label {
+		color: @alq-highlight;
+	}
+
+	.alq_brand_univ img {
+		background: @alq-white;
+		border-radius: 50%;
+		padding: 4px;
+	}
+
+	.alq_masthead_search {
+		border-color: rgba(255, 255, 255, 0.25);
+		background: rgba(255, 255, 255, 0.1);
+
+		input[type="search"] {
+			color: @alq-white;
+
+			&::placeholder {
+				color: rgba(255, 255, 255, 0.7);
+			}
+		}
+
+		&:focus-within {
+			background: @alq-white;
+
+			input[type="search"] {
+				color: @alq-ink;
+			}
+		}
+	}
+
+	.pkp_site_nav_toggle {
+		background: rgba(255, 255, 255, 0.12);
+
+		> span {
+			border-bottom-color: @alq-white;
+
+			&:before,
+			&:after {
+				background: @alq-white;
+			}
+		}
+	}
+
+	.alq_nav {
+		background: @alq-primary-dark;
+	}
+}
+
+@media (min-width: @screen-desktop) {
+
+	.alq_masthead {
+		padding: @double 0 @base;
+	}
+
+	.alq_masthead_search {
+		display: flex;
+	}
+
+	.alq_brand_univ img {
+		height: 84px;
+	}
+
+	.alq_brand_title {
+		font-size: 1.75rem;
+	}
+
+	.alq_head .pkp_site_nav_toggle {
+		display: none;
+	}
+
+	// Navigation row
+	.pkp_site_nav_menu.alq_nav {
+		position: static;
+		display: block;
+		padding: 0;
+		box-shadow: none;
+	}
+
+	.alq_nav .pkp_navigation_primary_row {
+		display: flex;
+		align-items: center;
+	}
+
+	.alq_nav .pkp_navigation_primary_wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.alq_nav .pkp_navigation_primary.pkp_navigation_primary {
+		display: block;
+		max-width: none;
+		margin: 0;
+		text-align: start;
+
+		> li > a {
+			margin: 0;
+			padding: 0.95rem 1rem;
+			border-bottom: 3px solid transparent;
+			border-radius: 0;
+			color: @alq-white;
+			font-size: @font-sml;
+			font-weight: 600;
+			letter-spacing: 0.01em;
+
+			&:hover {
+				border-color: @alq-highlight;
+				background: rgba(255, 255, 255, 0.07);
+				color: @alq-white;
+			}
+
+			&:focus {
+				background: @alq-white;
+				color: @alq-primary;
+			}
+		}
+
+		> li:first-child a {
+			margin-left: -1rem;
+		}
+
+		> li:hover ul,
+		> li ul.show {
+			transform: translate3d(0, 52px, 0);
+		}
+
+		ul {
+			border-radius: 0 0 @radius @radius;
+			box-shadow: @alq-shadow;
+
+			a {
+				padding: 0.6rem 1rem;
+				border-left: 3px solid transparent;
+				color: @alq-ink;
+				font-weight: 500;
+
+				&:hover,
+				&:focus {
+					border-color: @alq-accent;
+					background: @alq-surface;
+					color: @alq-accent;
+				}
+			}
+		}
+	}
+
+	// The search link in the nav bar is replaced by the masthead search field
+	.alq_nav .pkp_navigation_search_wrapper {
+		display: none;
+	}
+
+	// Navigation row: primary menu at the start, user menu (Login/Register
+	// or the account dropdown) at the end
+	.alq_nav_inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: @double;
+	}
+
+	.alq_nav .pkp_navigation_primary_row {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.alq_head .pkp_navigation_user_wrapper {
+		position: static;
+		top: auto;
+		left: auto;
+		transform: none;
+		flex: none;
+		width: auto;
+		padding: 0;
+		text-align: right;
+		z-index: 1001;
+	}
+
+	.alq_head .pkp_navigation_user {
+		display: inline-block;
+		width: auto; // body.less gives this list the container width
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: @font-sml;
+
+		> li > a {
+			margin: 0;
+			padding: 0.95rem 0.75em;
+			border-bottom: 3px solid transparent;
+			line-height: @line-sml;
+			color: @alq-white;
+			font-weight: 500;
+
+			&:hover {
+				border-color: @alq-highlight;
+				background: rgba(255, 255, 255, 0.07);
+				color: @alq-white;
+			}
+
+			&:focus {
+				background: @alq-white;
+				color: @alq-primary;
+			}
+		}
+
+		> li:last-child > a {
+			margin-right: -0.75em;
+		}
+
+		> li:hover ul,
+		> li ul.show {
+			transform: translate3d(0, 52px, 0);
+		}
+
+		ul {
+			width: 13em;
+			border-radius: 0 0 @radius @radius;
+			box-shadow: @alq-shadow;
+
+			a {
+				line-height: 1.5;
+				padding: 0.5rem 0.8rem;
+				color: @alq-ink;
+
+				&:hover,
+				&:focus {
+					border-color: @alq-accent;
+					background: @alq-surface;
+					color: @alq-accent;
+				}
+			}
+		}
+
+		.task_count {
+			background: @alq-highlight;
+			color: @alq-primary-dark;
+			top: 0;
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Buttons
+// ---------------------------------------------------------------------------
+.alq_btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.7em 1.35em;
+	border: 2px solid transparent;
+	border-radius: 999px;
+	font-family: @font;
+	font-size: @font-sml;
+	font-weight: 700;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.15s ease;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+.alq_btn--primary {
+	background: @alq-accent;
+	color: @alq-white;
+
+	&:hover,
+	&:focus {
+		background: @alq-accent-dark;
+		color: @alq-white;
+		transform: translateY(-1px);
+		box-shadow: 0 6px 16px fade(@alq-accent, 30%);
+	}
+}
+
+.alq_btn--outline {
+	border-color: @alq-primary;
+	color: @alq-primary;
+	background: transparent;
+
+	&:hover,
+	&:focus {
+		background: @alq-primary;
+		color: @alq-white;
+	}
+}
+
+.alq_btn--ghost {
+	color: @alq-primary;
+	background: transparent;
+	padding-left: 0.6em;
+	padding-right: 0.6em;
+
+	&:hover,
+	&:focus {
+		color: @alq-accent;
+		text-decoration: underline;
+	}
+}
+
+// Parent theme buttons (forms, make-submission block...)
+.cmp_button,
+.pkp_structure_main .cmp_form .buttons button,
+.block_make_submission a {
+	background: @alq-accent;
+	border: 0;
+	border-radius: 999px;
+	box-shadow: none;
+	padding: 0 1.4em;
+	color: @alq-white;
+	font-weight: 700;
+
+	&:hover,
+	&:focus {
+		background: @alq-accent-dark;
+		box-shadow: none;
+		color: @alq-white;
+	}
+}
+
+// Galley links (PDF buttons)
+.pkp_structure_main .galleys_links {
+	flex-wrap: wrap;
+	gap: @half;
+
+	li {
+		min-width: 0;
+		max-width: 100%;
+		margin-inline-end: 0;
+	}
+}
+
+.pkp_structure_main .obj_galley_link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	max-width: 100%;
+	padding: 0.35em 1.1em;
+	border: 1px solid @alq-primary;
+	border-radius: 999px;
+	background: @alq-white;
+	color: @alq-primary;
+	font-weight: 700;
+	line-height: 1.5;
+	white-space: normal;
+	overflow-wrap: anywhere;
+
+	&:before {
+		flex: none;
+		margin: 0;
+	}
+
+	&:hover,
+	&:focus {
+		background: @alq-primary;
+		color: @alq-white;
+	}
+
+	&.pdf {
+		border-color: @alq-accent;
+		background: @alq-accent;
+		color: @alq-white;
+
+		&:hover,
+		&:focus {
+			background: @alq-accent-dark;
+			border-color: @alq-accent-dark;
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Breadcrumbs, pagination, notifications
+// ---------------------------------------------------------------------------
+.cmp_breadcrumbs {
+
+	ol {
+		margin-bottom: @double;
+	}
+
+	a {
+		color: @alq-muted;
+
+		&:hover,
+		&:focus {
+			color: @alq-accent;
+		}
+	}
+
+	.current,
+	.current h1 {
+		color: @alq-primary;
+	}
+}
+
+.cmp_pagination {
+
+	.prev,
+	.next {
+		display: inline-block;
+		padding: 0.35em 1em;
+		border: 1px solid @alq-line;
+		border-radius: 999px;
+		color: @alq-primary;
+
+		&:hover,
+		&:focus {
+			border-color: @alq-accent;
+			color: @alq-accent;
+		}
+	}
+}
+
+.cmp_notification {
+	border-left-color: @alq-accent;
+	border-radius: 0 @radius @radius 0;
+}
+
+// ---------------------------------------------------------------------------
+// Homepage
+// ---------------------------------------------------------------------------
+.alq_home {
+
+	> section {
+		margin-bottom: @triple;
+	}
+
+	.alq_section_title {
+		.alq-section-title();
+	}
+}
+
+// --- Hero banner
+.alq_hero {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: @triple;
+	align-items: center;
+	margin: 0 -@base @triple;
+	padding: @triple @double;
+	background: linear-gradient(135deg, @alq-surface 0%, @alq-white 65%);
+	border-bottom: 1px solid @alq-line;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 6px;
+		background: linear-gradient(180deg, @alq-primary, @alq-accent 60%, @alq-highlight);
+	}
+
+	// Decorative sun rays inspired by the logo
+	&:after {
+		content: '';
+		position: absolute;
+		right: -120px;
+		top: -120px;
+		width: 320px;
+		height: 320px;
+		border-radius: 50%;
+		background: radial-gradient(circle, fade(@alq-highlight, 18%) 0%, fade(@alq-highlight, 0%) 70%);
+		pointer-events: none;
+	}
+
+	@media (min-width: @screen-phone) {
+		margin-left: -@double;
+		margin-right: -@double;
+		padding-left: @triple;
+		padding-right: @triple;
+	}
+
+	@media (min-width: @screen-tablet) {
+		grid-template-columns: minmax(0, 1fr) 260px;
+	}
+
+	@media (min-width: @screen-desktop) {
+		margin-left: -@triple;
+		margin-right: -@triple;
+		margin-top: -@triple;
+		padding: @quadruple @triple;
+	}
+}
+
+.alq_hero_text {
+	position: relative;
+	min-width: 0;
+}
+
+.alq_hero_kicker {
+	margin: 0 0 0.5rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: @alq-accent;
+}
+
+.pkp_structure_main .alq_hero_title {
+	margin: 0 0 @base;
+	font-size: 2rem;
+	line-height: 1.2;
+	color: @alq-primary;
+}
+
+.alq_hero_desc {
+	max-width: 62ch;
+	font-size: @font-bump;
+	line-height: 1.65;
+	color: @alq-muted;
+
+	p {
+		margin: 0.5rem 0;
+	}
+
+	> :first-child {
+		margin-top: 0;
+	}
+}
+
+.alq_hero_meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 1.5em;
+	margin-top: @base;
+	font-size: @font-sml;
+	color: @alq-muted;
+
+	strong {
+		color: @alq-ink;
+	}
+}
+
+.alq_hero_actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: @base;
+	margin-top: @double;
+}
+
+.alq_hero_cover {
+	position: relative;
+	justify-self: center;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		text-decoration: none;
+	}
+
+	img {
+		display: block;
+		width: auto;
+		max-width: 240px;
+		max-height: 330px;
+		margin: 0 auto;
+		border-radius: 6px;
+		box-shadow: @alq-shadow;
+		transform: rotate(-2deg);
+		transition: transform 0.25s ease;
+	}
+
+	a:hover img,
+	a:focus img {
+		transform: rotate(0) scale(1.02);
+	}
+}
+
+.alq_hero_cover_caption {
+	display: block;
+	margin-top: @base;
+	font-size: @font-sml;
+	font-weight: 700;
+	color: @alq-primary;
+}
+
+// --- Homepage image uploaded by the journal
+.alq_home .homepage_image img {
+	border-radius: @alq-radius;
+}
+
+// --- Announcements
+.alq_home .cmp_announcements {
+	.alq-card();
+	border-top: 1px solid @alq-line;
+	border-bottom: 1px solid @alq-line;
+	margin-left: 0;
+	margin-right: 0;
+	overflow: hidden;
+
+	> .obj_announcement_summary,
+	.more .obj_announcement_summary {
+		padding: @double;
+	}
+
+	.more {
+		background: @alq-surface;
+	}
+
+	h3 a,
+	h4 a {
+		color: @alq-primary;
+
+		&:hover,
+		&:focus {
+			color: @alq-accent;
+		}
+	}
+}
+
+.obj_announcement_summary .date:before,
+.obj_announcement_full .date:before {
+	color: @alq-highlight;
+}
+
+// --- Current issue
+.alq_home .current_issue {
+
+	> h2 {
+		.alq-section-title();
+	}
+
+	.current_issue_title {
+		display: inline-block;
+		margin: -@base 0 @double;
+		padding: 0.25em 0.9em;
+		border-radius: 999px;
+		background: @alq-primary-soft;
+		color: @alq-primary;
+		font-weight: 700;
+	}
+
+	.read_more {
+		.alq_btn;
+		.alq_btn--outline;
+		padding-right: 1.35em;
+
+		&:after {
+			display: none;
+		}
+	}
+}
+
+// --- Additional content / indexing
+.alq_home .additional_content {
+	border-top: 1px solid @alq-line;
+}
+
+.alq_indexing {
+	padding: @triple @double;
+	margin-left: -@base;
+	margin-right: -@base;
+	background: @alq-surface;
+	border-top: 1px solid @alq-line;
+	text-align: center;
+
+	h2 {
+		margin: 0 0 @double;
+		font-size: @font-bump;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: @alq-muted;
+	}
+
+	.alq_indexing_body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: @double @triple;
+
+		img {
+			max-height: 56px;
+			width: auto;
+			filter: grayscale(1);
+			opacity: 0.75;
+			transition: all 0.2s ease;
+
+			&:hover {
+				filter: none;
+				opacity: 1;
+			}
+		}
+	}
+
+	@media (min-width: @screen-phone) {
+		margin-left: -@double;
+		margin-right: -@double;
+	}
+
+	@media (min-width: @screen-desktop) {
+		margin-left: -@triple;
+		margin-right: -@triple;
+		margin-bottom: -(@triple * 3);
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Site index (list of journals)
+// ---------------------------------------------------------------------------
+.alq_site_intro {
+	margin-bottom: @triple;
+
+	h2 {
+		.alq-section-title();
+	}
+
+	p {
+		margin: 0;
+		color: @alq-muted;
+	}
+}
+
+.alq_journals {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: @double;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@media (min-width: @screen-tablet) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	> li {
+		.alq-card();
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+		&:hover {
+			box-shadow: @alq-shadow;
+			transform: translateY(-2px);
+		}
+	}
+
+	.alq_journal_thumb {
+		display: block;
+		background: @alq-surface;
+		text-align: center;
+
+		img {
+			display: block;
+			margin: 0 auto;
+			max-height: 260px;
+			width: auto;
+		}
+	}
+
+	.alq_journal_body {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		padding: @double;
+	}
+
+	h3 {
+		margin: 0 0 @half;
+		font-size: @font-bump;
+
+		a {
+			color: @alq-primary;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: @alq-accent;
+			}
+		}
+	}
+
+	.alq_journal_issn {
+		margin-bottom: @base;
+		font-size: @font-sml;
+		color: @alq-muted;
+	}
+
+	.description {
+		flex: 1 1 auto;
+		font-size: @font-sml;
+		line-height: @line-sml;
+		color: @alq-muted;
+
+		p {
+			margin: 0 0 @half;
+		}
+	}
+
+	.alq_journal_links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: @half;
+		margin-top: @double;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Issue table of contents & article summaries
+// ---------------------------------------------------------------------------
+.obj_issue_toc {
+
+	.heading {
+		.alq-card();
+		padding: @double;
+		margin-bottom: @triple;
+
+		&:empty {
+			display: none;
+		}
+
+		// Only a "published" line: no need for a card
+		&:not(:has(.cover)):not(:has(.description)):not(:has(.pub_id)) {
+			background: transparent;
+			border: 0;
+			box-shadow: none;
+			padding: 0;
+			margin-bottom: @double;
+			color: @alq-muted;
+
+			.published {
+				margin: 0;
+			}
+		}
+	}
+
+	.cover img {
+		border-radius: 6px;
+		box-shadow: @alq-shadow-sm;
+	}
+
+	.pub_id .type,
+	.published .label {
+		color: @alq-primary;
+	}
+
+	.galleys,
+	.section {
+		margin: 0 0 @triple;
+		padding: 0;
+
+		&:before {
+			display: none;
+		}
+
+		> h2,
+		> h3 {
+			display: block;
+			position: static;
+			margin: 0 0 @double;
+			padding: 0 0 0 0.75em;
+			border-left: 4px solid @alq-highlight;
+			background: transparent;
+			font-size: @font-bump;
+			font-weight: 700;
+			line-height: 1.4;
+			color: @alq-primary;
+		}
+	}
+
+	.galleys .galleys_links {
+		margin-top: 0;
+	}
+
+	.articles > li {
+		margin-bottom: @double;
+	}
+}
+
+.obj_article_summary {
+	.alq-card();
+	position: relative;
+	padding: @double;
+	transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+	&:hover {
+		border-color: fade(@alq-accent, 40%);
+		box-shadow: @alq-shadow;
+	}
+
+	> .title {
+		font-size: 1.06rem;
+		line-height: 1.45;
+
+		a {
+			color: @alq-primary;
+
+			&:hover,
+			&:focus {
+				color: @alq-accent;
+			}
+		}
+	}
+
+	.subtitle {
+		font-size: @font-sml;
+	}
+
+	.meta {
+		padding-top: @base;
+	}
+
+	.authors {
+		color: @alq-muted;
+		font-weight: 500;
+	}
+
+	.pages,
+	.published {
+		display: inline-block;
+		padding: 0.05em 0.75em;
+		border-radius: 999px;
+		background: @alq-surface;
+		font-size: 0.8rem;
+		color: @alq-muted;
+	}
+
+	.galleys_links {
+		margin-top: @base;
+	}
+
+	.cover img {
+		border-radius: 6px;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Issue archive
+// ---------------------------------------------------------------------------
+.page_issue_archive {
+
+	.issues_archive {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: @double;
+		margin: 0;
+		border: 0;
+
+		> li {
+			.alq-card();
+			padding: @double;
+			border-bottom: 1px solid @alq-line;
+			transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+			&:hover {
+				box-shadow: @alq-shadow;
+				transform: translateY(-2px);
+			}
+		}
+	}
+
+	.obj_issue_summary {
+
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		.cover {
+			float: none;
+			width: auto;
+			margin: 0 0 @base;
+
+			img {
+				width: 100%;
+				max-height: none;
+				border-radius: 6px;
+				box-shadow: @alq-shadow-sm;
+			}
+		}
+
+		h2 {
+			font-size: @font-base;
+			line-height: 1.4;
+		}
+
+		.title {
+			color: @alq-primary;
+
+			&:hover,
+			&:focus {
+				color: @alq-accent;
+			}
+		}
+
+		.description {
+			margin-top: @half;
+			font-size: 0.86rem;
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Article page
+// ---------------------------------------------------------------------------
+.obj_article_details {
+
+	> .page_title {
+		font-size: 1.85rem;
+		line-height: 1.3;
+		color: @alq-primary;
+	}
+
+	> .subtitle {
+		color: @alq-muted;
+	}
+
+	.row {
+		border: 0;
+	}
+
+	.main_entry {
+		border-right: 0;
+
+		.item {
+			padding-left: 0;
+			padding-right: @double;
+		}
+
+		.item .label {
+			position: relative;
+			padding-bottom: 0.4rem;
+			border-bottom: 2px solid @alq-line;
+			color: @alq-primary;
+
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: -2px;
+				width: 40px;
+				height: 2px;
+				background: @alq-highlight;
+			}
+		}
+
+		.item.doi .label,
+		.item.keywords .label {
+			border: 0;
+			padding-bottom: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		.item.keywords .value {
+			display: inline;
+		}
+	}
+
+	.authors .name {
+		color: @alq-ink;
+	}
+
+	.entry_details {
+		border: 0;
+		margin: 0;
+		padding-left: @double;
+
+		.item {
+			.alq-card();
+			margin: 0 0 @base;
+			padding: @double;
+			border-bottom: 1px solid @alq-line;
+
+			&:last-child {
+				border-bottom: 1px solid @alq-line;
+			}
+
+			.label {
+				margin-bottom: 0.35rem;
+				font-size: 0.74rem;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: @alq-accent;
+			}
+
+			.sub_item {
+				margin-bottom: @base;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.cover_image {
+			padding: 0;
+			overflow: hidden;
+
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		.galleys {
+			background: @alq-surface;
+
+			.galleys_links {
+				flex-wrap: wrap;
+				gap: @half;
+
+				li {
+					margin: 0;
+					flex: 1 1 100%;
+				}
+			}
+
+			.obj_galley_link {
+				width: 100%;
+				justify-content: center;
+				padding: 0.4em 1em;
+				font-size: @font-base;
+				line-height: 2;
+			}
+		}
+
+		.published .value,
+		.issue .value {
+			font-weight: 500;
+		}
+	}
+
+	.citation_display .citation_formats {
+		border-color: @alq-line;
+		border-radius: @radius;
+	}
+
+	@media (max-width: (@screen-tablet - 1px)) {
+
+		.main_entry .item {
+			padding-right: 0;
+		}
+
+		.entry_details {
+			padding-left: 0;
+		}
+	}
+}
+
+// Share buttons
+.alq_share_list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		margin: 0;
+	}
+
+	a,
+	button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 38px;
+		border: 0;
+		border-radius: 50%;
+		background: @alq-surface;
+		color: @alq-primary;
+		font-size: 1rem;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.15s ease;
+
+		&:hover,
+		&:focus {
+			background: @alq-primary;
+			color: @alq-white;
+			transform: translateY(-2px);
+		}
+	}
+
+	.is_copied {
+		background: #1f9d55;
+		color: @alq-white;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Sidebar blocks
+// ---------------------------------------------------------------------------
+.pkp_structure_sidebar {
+
+	@media (min-width: @screen-desktop) {
+		padding-left: @double;
+	}
+}
+
+.pkp_block {
+	.alq-card();
+	margin-bottom: @double;
+	padding: @double;
+
+	.title {
+		margin-bottom: @base;
+		padding-bottom: 0.4rem;
+		border-bottom: 2px solid @alq-line;
+		font-size: @font-base;
+		font-weight: 700;
+		color: @alq-primary;
+	}
+
+	.content li {
+		padding: 0.3rem 0;
+	}
+
+	@media (min-width: @screen-desktop) {
+		padding: @double;
+	}
+}
+
+.block_browse .current a {
+	border-left-color: @alq-highlight;
+}
+
+// ---------------------------------------------------------------------------
+// Editorial masthead, about pages
+// ---------------------------------------------------------------------------
+.page_masthead {
+
+	h2 {
+		.alq-section-title();
+		font-size: @font-bump;
+		margin-top: @triple;
+	}
+
+	.user_listing li {
+		padding: @base @double;
+		border-left: 3px solid @alq-line;
+
+		&:hover {
+			border-left-color: @alq-highlight;
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Forms
+// ---------------------------------------------------------------------------
+.cmp_form {
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="url"],
+	input[type="tel"],
+	select,
+	textarea {
+		border-color: #cfd3df;
+		border-radius: @radius;
+
+		&:focus {
+			border-color: @alq-accent;
+			outline: 0;
+			box-shadow: 0 0 0 3px fade(@alq-accent, 15%);
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Footer
+// ---------------------------------------------------------------------------
+.alq_footer {
+	background: @alq-primary;
+	color: rgba(255, 255, 255, 0.82);
+	font-size: @font-sml;
+	line-height: @line-sml;
+
+	a {
+		color: @alq-white;
+
+		&:hover,
+		&:focus {
+			color: @alq-highlight;
+		}
+	}
+}
+
+.alq_footer_main {
+	padding: (@triple * 1.5) 0 @triple;
+	border-top: 4px solid @alq-highlight;
+}
+
+.alq_footer_grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: @triple;
+
+	@media (min-width: @screen-tablet) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@media (min-width: @screen-desktop) {
+		grid-template-columns: 1.6fr 1fr 1.1fr 1fr;
+	}
+}
+
+.alq_footer_col {
+
+	h3 {
+		position: relative;
+		margin: 0 0 @double;
+		padding-bottom: @half;
+		font-family: @font-heading;
+		font-size: @font-bump;
+		font-weight: 700;
+		color: @alq-white;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 36px;
+			height: 3px;
+			margin-top: @half;
+			border-radius: 2px;
+			background: @alq-highlight;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin: 0 0 0.5rem;
+	}
+
+	p {
+		margin: 0 0 @base;
+	}
+}
+
+.alq_footer_brand {
+	display: flex;
+	align-items: center;
+	gap: @double;
+	margin-bottom: @double;
+
+	img {
+		display: block;
+		width: auto;
+		height: 76px;
+	}
+}
+
+.alq_footer_univ {
+	font-family: @font-heading;
+	font-size: @font-bump;
+	font-weight: 700;
+	color: @alq-white;
+}
+
+.alq_footer_journal {
+	color: rgba(255, 255, 255, 0.82);
+}
+
+.alq_footer_issn {
+	margin-top: @base;
+
+	span {
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	strong {
+		color: @alq-highlight;
+	}
+}
+
+.alq_footer_links a {
+	display: inline-block;
+	text-decoration: none;
+
+	&:before {
+		.fa();
+		content: @fa-var-angle-right;
+		margin-right: 0.5em;
+		color: @alq-highlight;
+	}
+}
+
+.alq_footer_contact li {
+	display: flex;
+	gap: 0.75em;
+	align-items: flex-start;
+
+	.fa {
+		flex: none;
+		width: 1.2em;
+		margin-top: 0.3em;
+		text-align: center;
+		color: @alq-highlight;
+	}
+
+	a {
+		text-decoration: none;
+		word-break: break-word;
+	}
+}
+
+.alq_footer_social {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.1);
+		color: @alq-white;
+		font-size: 1.1rem;
+		text-decoration: none;
+		transition: all 0.15s ease;
+
+		&:hover,
+		&:focus {
+			background: @alq-highlight;
+			color: @alq-primary-dark;
+			transform: translateY(-2px);
+		}
+	}
+}
+
+.alq_footer_custom {
+	padding: @double 0;
+	background: @alq-primary-dark;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+	.pkp_footer_content {
+		padding: 0;
+		text-align: inherit;
+
+		p {
+			margin: 0.25rem 0;
+		}
+	}
+}
+
+.alq_footer_bottom {
+	padding: @base 0;
+	background: @alq-primary-dark;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	font-size: 0.82rem;
+}
+
+.alq_footer_bottom_inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: @base;
+}
+
+.alq_footer .pkp_brand_footer {
+	padding: 0;
+
+	a {
+		float: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6em;
+		max-width: none;
+		opacity: 0.85;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+	img {
+		height: 26px;
+		width: auto;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Back-to-top button (injected by js/alqalam.js)
+// ---------------------------------------------------------------------------
+.alq_backtotop {
+	position: fixed;
+	right: @double;
+	bottom: @double;
+	width: 44px;
+	height: 44px;
+	border: 0;
+	border-radius: 50%;
+	background: @alq-accent;
+	color: @alq-white;
+	box-shadow: @alq-shadow;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(12px);
+	transition: all 0.2s ease;
+	z-index: 900;
+
+	&.is_visible {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	&:hover,
+	&:focus {
+		background: @alq-primary;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// RTL (Arabic)
+// ---------------------------------------------------------------------------
+body[dir="rtl"] {
+	font-family: "Almarai", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+	line-height: 1.75;
+
+	h1, h2, h3, h4, .alq_brand_title, .alq_footer_univ, .alq_footer_col h3 {
+		font-family: "Amiri", "Almarai", Georgia, serif;
+	}
+
+	.pkp_structure_main {
+		h1, h2, h3 {
+			line-height: 1.5;
+		}
+	}
+
+	.alq_hero_kicker {
+		letter-spacing: 0;
+		text-transform: none;
+	}
+
+	.alq_hero:before {
+		left: auto;
+		right: 0;
+	}
+
+	.alq_hero:after {
+		right: auto;
+		left: -120px;
+	}
+
+	.alq_hero_cover img {
+		transform: rotate(2deg);
+	}
+
+	.alq_hero_cover a:hover img,
+	.alq_hero_cover a:focus img {
+		transform: rotate(0) scale(1.02);
+	}
+
+	.alq_indexing h2 {
+		letter-spacing: 0;
+		text-transform: none;
+	}
+
+	.obj_issue_toc .galleys > h2,
+	.obj_issue_toc .galleys > h3,
+	.obj_issue_toc .section > h2,
+	.obj_issue_toc .section > h3 {
+		padding: 0 0.75em 0 0;
+		border-left: 0;
+		border-right: 4px solid @alq-highlight;
+		right: auto;
+	}
+
+	.obj_article_details {
+
+		.main_entry {
+			border-left: 0;
+
+			.item {
+				padding-right: 0;
+				padding-left: @double;
+			}
+
+			.item .label:after {
+				left: auto;
+				right: 0;
+			}
+		}
+
+		.entry_details {
+			padding-left: 0;
+			padding-right: @double;
+
+			.item .label {
+				letter-spacing: 0;
+			}
+		}
+
+		@media (max-width: (@screen-tablet - 1px)) {
+
+			.main_entry .item {
+				padding-left: 0;
+			}
+
+			.entry_details {
+				padding-right: 0;
+			}
+		}
+	}
+
+	.alq_footer_links a:before {
+		content: @fa-var-angle-left;
+		margin-right: 0;
+		margin-left: 0.5em;
+	}
+
+	.alq_footer_issn span {
+		margin-right: 0;
+		margin-left: 1em;
+	}
+
+	.block_browse .current a {
+		border-left: 0;
+		border-right: 4px solid @alq-highlight;
+		padding-left: 0;
+		padding-right: 0.5em;
+	}
+
+	.page_masthead .user_listing li {
+		border-left: 0;
+		border-right: 3px solid @alq-line;
+
+		&:hover {
+			border-right-color: @alq-highlight;
+		}
+	}
+
+	.cmp_notification {
+		border-left: 0;
+		border-right: @half solid @alq-accent;
+		border-radius: @radius 0 0 @radius;
+	}
+
+	.alq_backtotop {
+		right: auto;
+		left: @double;
+	}
+
+	.pkp_structure_sidebar {
+		@media (min-width: @screen-desktop) {
+			padding-left: 0;
+			padding-right: @double;
+		}
+	}
+
+	@media (min-width: @screen-desktop) {
+
+		.alq_head .pkp_navigation_user_wrapper {
+			text-align: left;
+		}
+
+		.alq_head .pkp_navigation_user > li:last-child > a {
+			margin-right: 0;
+			margin-left: -0.75em;
+		}
+
+		.alq_nav .pkp_navigation_primary > li:first-child a {
+			margin-left: 0;
+			margin-right: -1rem;
+		}
+
+		.alq_nav .pkp_navigation_primary ul a {
+			border-left: 0;
+			border-right: 3px solid transparent;
+
+			&:hover,
+			&:focus {
+				border-color: @alq-accent;
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Print
+// ---------------------------------------------------------------------------
+@media print {
+
+	.alq_topbar,
+	.alq_nav,
+	.alq_masthead_search,
+	.pkp_site_nav_toggle,
+	.alq_share,
+	.alq_backtotop,
+	.alq_footer_main,
+	.alq_footer_custom,
+	.pkp_structure_sidebar {
+		display: none !important;
+	}
+
+	.alq_footer {
+		background: none;
+		color: #000;
+	}
+
+	.obj_article_details .entry_details .item,
+	.obj_article_summary {
+		box-shadow: none;
+	}
+}
